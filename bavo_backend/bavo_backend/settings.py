@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'product',
 ]
 
 MIDDLEWARE = [
@@ -39,6 +40,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bavo_backend.urls'
+AUTH_PROFILE_MODEL = 'account.Profile'
 
 TEMPLATES = [
     {

@@ -6,14 +6,16 @@ from ..models import Product, Cart
 from account.models import Profile
 
 
-class Home(View):
+class ProductView(View):
     def get_object(self, model, id):
         obj = get_object_or_404(model, pk=id)
         return obj
     
     def get(self, request):
         user = request.user
-        profile = self.get_object(Profile, user)
+        print(user.id)
+        profile = self.get_object(Profile, 1)
+        profile = Profile.objects.get(id=request.user.id)
         cart = self.get_object(Cart, profile.id)
         product = Product.objects.filter(user=profile)
 
@@ -22,7 +24,9 @@ class Home(View):
             "cart": cart.products.all(),
             "product": product
         }
-        return HttpResponse("Homepage")
+        return HttpResponse(Profile.objects.get(id=request.user.id))
     
     def post(self, request):
-        return HttpResponse("home page ")
+        # proudct = Product.objects.create(**request.POst)
+        print(**request.POST)
+        return HttpResponse("product create views")
