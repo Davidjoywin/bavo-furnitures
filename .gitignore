@@ -1,0 +1,3 @@
+bavo-backend/*/__pycache__
+bavo-backend/*/views/__pycache
+bavo-backend/*/migrations
