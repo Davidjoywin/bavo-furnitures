@@ -22,4 +22,6 @@ class Cart(models.Model):
     products = models.ManyToManyField(Product)
 
     def __str__(self):
-        return self.user.username
+        email =  self.user.email
+        username = email.split('@')[0]
+        return username

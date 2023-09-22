@@ -7,23 +7,21 @@ from ..models import Profile
 
 class Register(View):
     def get(self, request):
-        return HttpResponse("successful render")
+        ...
     
     def post(self, request):
-        username=request.POST.get("username", None)
         password=request.POST.get("password", None)
         verify_password=request.POST.get("verify-password", None)
         email=request.POST.get("email", None)
-        first_name=request.POST.get("first-name", None)
-        last_name=request.POST.get("last-name", None)
+        username = email.split('@')[0]
 
         if password == verify_password:
-            profile = Profile.objects.create(
-                username=username, password=password, email=email, first_name=first_name, last_name=last_name
-            )
+            profile = Profile.objects.create(email=email, username=username)
+            profile.set_password(password)
             profile.save()
+            print(profile)
             login(request, profile)
-            return redirect("main:app")
+            return redirect("/")
         
-        return redirect("account:register")
+        return redirect("/")
 

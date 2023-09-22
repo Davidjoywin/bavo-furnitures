@@ -1,17 +1,3 @@
-// OPEN & CLOSE CART
-const cartIcon = document.querySelector("#cart-icon");
-const cart = document.querySelector(".cart");
-const closeCart = document.querySelector("#cart-close");
-const userIcon = document.getElementById("#user-icon")
-
-cartIcon.addEventListener("click", () => {
-  cart.classList.add("active");
-});
-
-closeCart.addEventListener("click", () => {
-  cart.classList.remove("active");
-});
-
 const typed = new Typed(".auto", {
     strings : ["Transform Your Space", "Elevate Your Home's Charm."],
     typeSpeed: 100,
@@ -19,13 +5,8 @@ const typed = new Typed(".auto", {
     loop: true
 });
 
-// userIcon.addEventListener("click", function() {
-  
-// });
-
-
 $(function() {
-    //defining all needed variables 
+    //defining all needed variables
     var $overlay = $('.overlay');
     var $mainPopUp = $('.main-popup')
     var $signIn = $('#sign-in');
@@ -67,7 +48,7 @@ $(function() {
         $formRegister.addClass('move-left');
       });
       
-      // $('input').on('submit', function(e){
-      //   e.preventDefault(); 
-      // });
+      $('input').on('submit', function(e){
+        e.preventDefault(); //used to prevent submission of form...remove for real use
+      });
 })

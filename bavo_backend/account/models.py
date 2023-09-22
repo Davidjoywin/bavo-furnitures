@@ -12,7 +12,9 @@ class Profile(User):
         swappable = "AUTH_PROFILE_MODEL"
 
     def __str__(self):
-        return self.username
+        email = self.email
+        username = email.split('@')[0]
+        return username
     
     def create_superuser(self, username, email=None, password=None, **extra_fields):
         extra_fields.setdefault("is_staff", True)
